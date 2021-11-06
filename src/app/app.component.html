@@ -1,0 +1,114 @@
+<header>
+  <a id="tree" href="">PlanTrees🌱<img src="https://lh3.googleusercontent.com/proxy/F3b1dTVbGmjxGZJixLYjQJGOyVJYlfzXLYo48iiE15NKc6c51doiG9pVGbZir8qofsQxv8kD8X9vveR_s92jVky4ruFwzJ8" alt=""></a>
+  <a id="mobilelogo" href="">PT🌱</a>
+  <nav>
+    <a href="">Shop</a>
+    <a href="">Cart</a>
+    <a href="">Contact</a>
+  </nav>
+</header>
+
+<div class="conteneur">
+  <br><br><br>
+  <div class="conteneur2 container"> 
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- Insertion list-group -->
+
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action" aria-current="true" *ngFor="let i of produitsBoutique; index as ind" (click)="detailProduit(i)">
+            {{ind+1}}- {{i.nom}}
+          </a>
+        </div><br>
+        
+        <!--fin insertion list group-->
+      </div>
+      <div class="col-sm-8">
+
+        <!-- Bloc si aucun élément cliqué -->
+        <div class="conteneur3" *ngIf="!objetDetail?.nom">
+        <h1 id="defaulttext">
+          ◄ Cliquez sur un élément à gauche. 🍂
+        </h1>
+        <img id="treebowl" src="../assets/tree2.png" alt="tree">
+        </div>
+        <h1 *ngIf="!objetDetail?.nom" id="defaulttextmobile">
+          ▲ Cliquez sur un élément en haut. 🍂
+        </h1>
+
+        <!-- Bloc si élément cliqué -->
+        <div *ngIf="objetDetail?.nom">
+          <h1>{{objetDetail?.nom}} </h1><hr>
+          <h3>{{objetDetail?.fruit}}</h3> <br>
+          {{objetDetail?.description}} <br><hr>
+          <button type="button" class="btn btn-light delete"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Supprimer</button>
+          <!-- modal--> 
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Supression</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                Êtes vous sûr(e) de vouloir supprimer cet élément?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="delete btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                  <button type="button" class="btn btn-light" data-bs-dismiss="modal" (click)="onDelete(objetDetail)" (blur)="onBlurMethod()">Continue</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- fin modal -->
+        </div>
+      </div>
+    </div>
+
+      
+
+    <div class="row">
+      <!-- formulaire -->
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Ajouter un nouvel arbre:
+        </label> <p class="error">{{this.error}}</p>
+        <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="titreProduit" placeholder=""> 
+        <!-- {{titreProduit}} permet de voir en temps réel ce qui est écrit -->
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Fruit</label><p class="error">{{this.error}}</p>
+        <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="fruit" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Description</label><p class="error">{{this.error}}</p>
+        <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="description" placeholder="">
+        <br>
+        <button type="submit" class="btn btn-light" (click)="onAdd()" [disabled]="disableButton">Envoyer</button>
+        
+      </div>
+
+      <!-- Afficher le nombre d'éléments du tableau -->
+      <div>
+          <p style="font-size: 15px; margin-top: 20px">Vous avez {{produitsBoutique.length}} produits dans votre tableau de bord.</p><p class="error">{{this.errorLength}}</p>
+      </div>
+      
+
+      <!-- Fin formulaire -->
+    </div>
+    <!-- <ul>
+      {{ind+1}} 
+    <li>{{i.nom}}</li> 
+    <li>{{i.fruit}}</li> 
+    <li>{{i.description}}</li>
+    </ul> -->
+  </div>
+<br><br><br>
+</div>
+<footer>
+  <h3>PlanTrees</h3>
+  <p>Making it easier for people to get access to plants.</p>
+  <p>@ copiright 2021</p>
+</footer>
+
+
+<router-outlet></router-outlet>

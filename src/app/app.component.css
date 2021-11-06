@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme:wght@700&display=swap');
+
+.conteneur{
+    background-image: url('https://cdn.pixabay.com/photo/2013/02/21/19/12/lumber-84678_960_720.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+}
+
+.conteneur2{
+    background-color: rgba(231, 221, 201, 0.555);
+    backdrop-filter: blur(3px);
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.conteneur2 h1,
+.conteneur2 h2,
+.conteneur2 h3,
+.conteneur2 p{
+    margin: 0 auto;
+}
+
+.conteneur2 label{
+    font-weight: bold;
+}
+
+.error{
+    color: red;
+}
+
+.btn-light{
+    background-color: rgba(165, 42, 42, 0.39);
+    font-weight: bold;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: brown;
+    align-items: center;
+}
+
+header a{
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-family: 'BioRhyme', serif;
+
+}
+
+#mobilelogo{
+    display: none;
+}
+
+#defaulttext{
+    margin-top: 50px; 
+    text-align: center;
+    font-size: 17px;
+}
+
+#defaulttextmobile{
+    display: none;
+}
+
+.delete{
+    background-color: rgba(139, 0, 0, 0.678);
+}
+
+.fade{
+    backdrop-filter: blur(2px);
+}
+
+.conteneur3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#treebowl{
+    max-width: 50%;
+    height: auto;
+    max-height: 200px;
+    padding: 35px;
+}
+
+header{
+    height:85px;
+}
+
+nav a:hover{
+    box-shadow: black 4px 2px 2px 3px;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a{
+    padding-right: 40px;
+}
+
+#tree img{
+    max-width: 80px;
+    max-height: 100px;
+}
+
+footer{
+    height: 150px;
+    background-color: brown;
+    text-align: center;
+    padding: 20px;
+}
+
+@media only screen and (min-width: 992px) {
+    .conteneur{
+        display: flex;
+
+    }
+
+    .conteneur2{
+        margin: 35px auto;
+        width: 60%;
+
+    }
+}
+
+.list-group{
+    border: brown solid 3px;
+    margin-top: 22px;
+}
+
+.list-group a{
+    border-bottom: brown solid 1px;
+    background-color: #bb674975;
+    font-weight: bold;
+}
+
+.list-group a:hover{
+    color: brown;
+}
+
+.list-group a:active{
+    background-color: brown;
+    font-weight: bold;
+    color: black;
+}
+
+@media only screen and (max-width: 600px){
+    #tree{
+        display: none;
+    }
+
+    #mobilelogo{
+        display: block;
+    }
+
+    #defaulttext{
+        display: none;
+    }
+
+    #defaulttextmobile{
+        display: block;
+        margin-bottom: 50px;
+        font-size: 20px;
+    }
+}
